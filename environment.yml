@@ -1,0 +1,25 @@
+# environment for master thesis "Auto Tuner for Quantum Dot Charge States"
+channels:
+- defaults
+- conda-forge
+- districtdatalabs
+dependencies:
+- python=3.6.8
+- numpy=1.16.2
+- scipy=1.2.1
+- scikit-learn=0.21.1
+# - pytest=4.4.1
+# - cython=0.29.7
+- h5py=2.7.0
+- pandas=0.24.2
+- jupyter=1.0.0
+- shapely=1.6.4
+- matplotlib=3.0.3
+- scikit-plot
+- plotly=3.2.1
+- keras=2.2.4
+- pip=18.0
+- pip:
+# - PyQt5==5.12
+  - git+https://github.com/aleju/imgaug
+#  - git+https://github.com/scikit-learn/scikit-learn.git
