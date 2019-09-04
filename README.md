@@ -1,83 +1,53 @@
 # Code to Master Thesis "Quantum Dot Charge State Auto Tuner"
 
-TO BE EDITED!
-
-Bla bla project description
+# Content
+- Data processing, augmentation and labeling routine
+- auto-tuner
+- code used for generating clusters of the charge induced current offset
 
 
 # Structure
 
 ```
 
-├── LICENSE
-│
 │
 ├── README.md                <- The top-level README for developers using this project
 │
 ├── environment.yml          <- The requirements file for reproducing the analysis environment, e.g.
 │                                generated with `pip freeze > requirements.txt`
 │
-├── additional_models        <- Folder for additional models, e.g. Language models from Spacy, nltk,...
 │
+├── data                     <- Folder where all data is located (not on GitHub due to large size)
+│   ├── fine                 <- Folder for fine data
+│   ├── coarse                 <- Folder for coarse data
 │
-├── bin                      <- Stuff to be deleted
+├── report                   <- Report
 │
-│
-├── data
-│   ├── external             <- Data from third party sources.
-│   ├── processed            <- The final, canonical data sets for modeling.
-│   └── raw                  <- The original, immutable data dump.
-│
-│
-├── documents                <- Documentation of data etc.
-│   ├── docs
-│   ├── images
-│   └── references           <- Data dictionaries, manuals, and all other explanatory materials.
-│
-│
-├── misc                     <- miscellaneous
-│
-│
-├── notebooks                <- Jupyter notebooks. Every developper has its own folder for exploratory
-│   ├── name                    notebooks. Usually every model has its own notebook where models are
-│   │   └── exploration.ipynb   tested and optimized.
-│   └── model
-│       └── model_exploration.ipynb <- different optimized models can be compared here if preferred    
-│
-│
-├── reports                   <- Generated analysis as HTML, PDF, LaTeX, etc.
-│   └── figures               <- Generated graphics and figures to be used in reporting
-│
-│
-├── results
-│   ├── outputs
-│   └── models               <- Trained and serialized models, model predictions, or model summaries
-│
-│
-├── scores                   <- Cross validation scores are saved here. (Automatically generated)
-│   └── model_name           <- every model has its own folder. 
 │
 ├── src                      <- Source code of this project.
-│   ├── __init__.py          <- Makes src a Python module
-│   ├── programs.py          <- main calls a function from programs. These functions represent different steps
-│   │                           within the workflow.
-│   ├── data                 <- Scripts to download or generate data
-│   │   └── data_extraction.py
+│   ├── __init__.py              <- Makes src a Python module
+│   ├── clusterer                <- Scripts to download or generate data
+│   │   └── make_clusters.py
 │   │
-│   ├── process              <- Scripts to turn raw data into features for modeling
-│   │   └── processing.py
+│   ├── data_generation      <- Scripts to turn raw data into features for modeling
+│   │   └── augmenter.py        <- class for augmentation       
+│   │   └── labeler.py          <- class for automated labeling of fine frames
+│   │   └── marker.py           <- class for marking of charge transition lines
+│   │   └── occupation_labeler.py <- class for automated labeling of coarse frames
+│   │   └── measurement_series.py <- functions for repeated measurements
 │   │
 │   │
-│   └── utils                <- Scripts to create exploratory and results oriented visualizations
-│       └── exploration.py      / functions to evaluate models
-│       └── evaluation.py
+│   └── utils                <- Scripts to create exploratory and results oriented visualizations / functions to evaluate the models
+│       └── exploration.py      <- model exploration
+│       └── evaluation.py       <- model evaluation
+│       └── funcs.py            <- general functions, preprocessing of data
+│       └── measurement_funcs.py <- functions used to measure with Labber
+│       └── visualization.py    <- functions for visualization
 
 ```
-- create a python env based on a list of packages from environment.yml    
-  ```conda env create -f environment.yml -n env_auto_tuner```
- 
-
 # Instruction
+In order to run the code, the following python environment needs to be installed.
+
 ## create a python env based on a list of packages from environment.yml
 ```conda env create -f environment.yml -n env_auto_tuner```
 
